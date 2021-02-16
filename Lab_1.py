@@ -9,6 +9,11 @@ pen.color("white")
 screen.bgcolor("black")
 turtle.listen()
 
+def f(p):
+    x = (2 + 7*math.cos(math.sin(p)+math.sin(121*p)))*math.cos(p)
+    y = (2 + 7*math.cos(math.sin(p)+math.sin(121*p)))*math.sin(p)
+    return x,y
+
 def event(x,y):
     pen.undo()
     pen.penup()
@@ -19,13 +24,8 @@ def event(x,y):
         theta = theta + math.pi
     if y<0 and x>0:
         theta = theta + math.pi*2
-    pen.write(str(x/scale) + ',' + str(y/scale) + "\ntheta = " + str(theta))
+    pen.write(str(f(theta)) + "\ntheta = " + str(theta))
     pass
-
-def f(p):
-    x = (2 + 7*math.cos(math.sin(p)+math.sin(121*p)))*math.cos(p)
-    y = (2 + 7*math.cos(math.sin(p)+math.sin(121*p)))*math.sin(p)
-    return x,y
 
 #основна проргама
 scale = 20
